@@ -1,6 +1,6 @@
+import time
 import pygame
 import numpy as np
-import time
 
 COLOR_BG = (10, 10, 10)
 COLOR_GRID = (40, 40, 40)
@@ -43,9 +43,11 @@ def main():
     pygame.display.flip()
     pygame.display.update()
 
+    clock = pygame.time.Clock()
     running = False
 
     while True:
+        clock.tick(15)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -68,8 +70,6 @@ def main():
         if running:
             cells = update(screen, cells, 10, with_progress=True)
             pygame.display.update()
-
-        time.sleep(0.001)
 
 if __name__ == "__main__":
     main()
